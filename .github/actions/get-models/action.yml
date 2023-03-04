@@ -9,9 +9,9 @@ runs:
       with:
         node-version: 16
         cache: "npm"
+    - run: cd ./.github/actions/get-models
+      shell: bash
     - run: npm ci
       shell: bash
-      working-directory: ./.github/actions/get-models
     - run: npm start
       shell: bash
-      working-directory: ./.github/actions/get-models
