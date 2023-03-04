@@ -17,6 +17,7 @@ jobs:
     needs: get-models
     runs-on: ubuntu-latest
     strategy:
-      matrix: ${{ fromJSON(needs.get-models.outputs.matrix) }}
+      matrix:
+        models: [a, b, c]
     steps:
       - run: echo ${{ matrix.models }}
