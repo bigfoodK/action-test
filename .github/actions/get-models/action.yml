@@ -5,13 +5,5 @@ outputs:
 runs:
   using: "composite"
   steps:
-    - uses: actions/setup-node@v3
-      with:
-        node-version: 16
-        cache: "npm"
-        cache-dependency-path: ./.github/actions/get-models/package-lock.json
-    - run: npm ci
-      shell: bash
-      working-directory: ./.github/actions/get-models
-    - run: node ./.github/actions/get-models/index.js
+    - run: node ./.github/actions/get-models/index.js >> $GITHUB_OUTPUT
       shell: bash
