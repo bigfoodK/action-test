@@ -13,6 +13,5 @@ runs:
     - run: npm ci
       shell: bash
       working-directory: ./.github/actions/get-models
-    - run: npm start
+    - run: node ./.github/actions/get-models/index.js
       shell: bash
-      working-directory: ./.github/actions/get-models
