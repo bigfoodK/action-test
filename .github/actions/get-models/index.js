@@ -5,4 +5,4 @@ const models = dirents
   .filter((dirent) => dirent.isDirectory())
   .map((directory) => directory.name)
   .filter((directory_name) => !directory_name.startsWith("."));
-console.log(`models=${JSON.stringify(models)}`);
+process.stdout.write(`models=${JSON.stringify(models)}`);
