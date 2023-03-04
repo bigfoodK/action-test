@@ -10,7 +10,8 @@ jobs:
         run: |
           models=()
           for model in */ ; do
-              models+=("\\\"${model::-1}\\\",")
+              echo $model
+              models+=("\"${model::-1}\",")
           done
           echo "matrix={\"models\":[${models[@]}]}" >> $GITHUB_OUTPUT
   job2:
