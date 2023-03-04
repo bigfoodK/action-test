@@ -4,7 +4,7 @@ jobs:
   get-models:
     runs-on: ubuntu-latest
     outputs:
-      matrix: ${{ steps.get-models.outputs.models }}
+      models: ${{ steps.get-models.outputs.models }}
     steps:
       - name: checkout
         uses: actions/checkout@v3
@@ -15,6 +15,7 @@ jobs:
     needs: get-models
     runs-on: ubuntu-latest
     strategy:
-      matrix: ${{ fromJSON(needs.get-models.outputs.matrix) }}
+      matrix:
+        models: ${{ fromJSON(needs.get-models.outputs.models) }}
     steps:
       - run: echo ${{ matrix.models }}
