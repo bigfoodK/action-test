@@ -1,18 +1,18 @@
-name: deploy-clip-system
+name: iter-dir
 on: push
 jobs:
   get-models:
     runs-on: ubuntu-latest
     outputs:
-      matrix: ${{ steps.set-matrix.outputs.matrix }}
+      matrix: ${{ steps.get-models.outputs.matrix }}
     steps:
       - id: get-models
         run: |
-        models=()
-        for model in */ ; do
-            models+=("\"${model::-1}\",")
-        done
-        echo "matrix={\"models\":[${models[@]}]}" >> $GITHUB_OUTPUT
+          models=()
+          for model in */ ; do
+              models+=("\"${model::-1}\",")
+          done
+          echo "matrix={\"models\":[${models[@]}]}" >> $GITHUB_OUTPUT
   job2:
     needs: get-models
     runs-on: ubuntu-latest
