@@ -2,8 +2,10 @@ name: "Get Models"
 outputs:
   models:
     description: "Models in json format"
+    value: ${{ steps.get-models.outputs.models }}
 runs:
   using: "composite"
   steps:
-    - run: node ./.github/actions/get-models/index.js >> $GITHUB_OUTPUT
+    - id: get-models
+      run: node ./.github/actions/get-models/index.js >> $GITHUB_OUTPUT
       shell: bash
