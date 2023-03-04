@@ -19,4 +19,4 @@ jobs:
     strategy:
       matrix: ${{ fromJSON(needs.get-models.outputs.matrix) }}
     steps:
-      - run: echo
+      - run: echo ${{ matrix.models }}
