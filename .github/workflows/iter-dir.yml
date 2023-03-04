@@ -14,7 +14,7 @@ jobs:
               echo $model
               models+=("\"${model::-1}\"")
           done
-          echo "matrix={\"models\":[${models[@]}]}" >> $GITHUB_OUTPUT
+          printf '%s\n' "${models[@]}" | jq -R . | jq -s . >> $GITHUB_OUTPUT
   job2:
     needs: get-models
     runs-on: ubuntu-latest
