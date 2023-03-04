@@ -6,6 +6,7 @@ jobs:
     outputs:
       matrix: ${{ steps.get-models.outputs.matrix }}
     steps:
+      - uses: actions/checkout@v3
       - id: get-models
         run: |
           models=()
