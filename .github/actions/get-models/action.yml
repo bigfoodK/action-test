@@ -1,0 +1,8 @@
+name: "Get Models"
+outputs:
+  models:
+    description: "Models in format ( "model1" "model2" ... )"
+runs:
+  using: "node18"
+  main: 'index.js'
+  
