@@ -10,7 +10,7 @@ jobs:
         uses: actions/checkout@v3
       - name: Get Models
         id: get-models
-        uses: .github/actions/get-models
+        uses: ./.github/actions/get-models
   job2:
     needs: get-models
     runs-on: ubuntu-latest
