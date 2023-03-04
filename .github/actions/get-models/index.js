@@ -4,6 +4,7 @@ try {
   const dirents = require("fs").readdirSync(".", {
     withFileTypes: true,
   });
+  console.log(dirents);
   const models = dirents
     .filter((dirent) => dirent.isDirectory())
     .map((directory) => directory.name)
