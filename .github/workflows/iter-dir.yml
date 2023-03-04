@@ -12,12 +12,11 @@ jobs:
           for model in */ ; do
               models+=("\"${model::-1}\",")
           done
-          echo "matrix={\"models\":[${models[@]}]}" >> $GITHUB_OUTPUT
+          echo "matrix={\"models\":[\"asd\", \"asdf\", \"a v\", \"sample\"]}" >> $GITHUB_OUTPUT
   job2:
     needs: get-models
     runs-on: ubuntu-latest
     strategy:
-      matrix:
-        models: [a, b, c]
+      matrix: ${{ fromJSON(needs.get-models.outputs.matrix) }}
     steps:
       - run: echo ${{ matrix.models }}
