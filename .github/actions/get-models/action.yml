@@ -5,9 +5,6 @@ outputs:
 runs:
   using: "composite"
   steps:
-    - run: pwd
-      shell: bash
-      working-directory: ./.github/actions/get-models
     - uses: actions/setup-node@v3
       with:
         node-version: 16
@@ -15,5 +12,7 @@ runs:
         cache-dependency-path: ./.github/actions/get-models/package-lock.json
     - run: npm ci
       shell: bash
+      working-directory: ./.github/actions/get-models
     - run: npm start
       shell: bash
+      working-directory: ./.github/actions/get-models
