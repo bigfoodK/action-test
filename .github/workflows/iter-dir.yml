@@ -12,7 +12,7 @@ jobs:
           models=()
           for model in $(ls -d */) ; do
               echo $model
-              models+=("\"${model::-1}\"")
+              models+=("${model::-1}")
           done
           echo "matrix=$(printf '%s\n' \"${models[@]}\" | jq -R . | jq -s .)" >> $GITHUB_OUTPUT
   job2:
