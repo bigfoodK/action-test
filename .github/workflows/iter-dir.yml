@@ -10,9 +10,9 @@ jobs:
         run: |
           models=()
           for model in */ ; do
-              models+=("\"${model::-1}\",")
+              models+=("\\\"${model::-1}\\\",")
           done
-          echo "matrix={\"models\":[${models[@]}]}" >> $GITHUB_OUTPUT
+          echo "matrix={\\\"models\\\":[${models[@]}]}" >> $GITHUB_OUTPUT
   job2:
     needs: get-models
     runs-on: ubuntu-latest
