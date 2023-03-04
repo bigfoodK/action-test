@@ -9,9 +9,9 @@ jobs:
       - id: get-models
         run: |
           models=()
-          for model in */ ; do
+          for model in $(ls -d */) ; do
               echo $model
-              models+=("\"${model::-1}\",")
+              models+=("\"${model::-1}\"")
           done
           echo "matrix={\"models\":[${models[@]}]}" >> $GITHUB_OUTPUT
   job2:
